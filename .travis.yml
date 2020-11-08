@@ -11,6 +11,7 @@ env:
     - VFBSUB=preview  OWLURL=https://github.com/VirtualFlyBrain/VFB_owl/blob/preview/src/owl/vfb.owl.gz?raw=true
     - VFBSUB=scala-dev OWLURL=https://github.com/VirtualFlyBrain/VFB_owl/blob/scala-dev/src/owl/vfb.owl.gz?raw=true
     - VFBSUB=pip  OWLURL=http://VirtualFlyBrain.org/data/VFB/OWL/owlery.owl
+    - VFBSUB=live  OWLURL=http://VirtualFlyBrain.org/data/VFB/OWL/owlery-live.owl
 
 script:
   - echo -e "travis_fold:start:Geppetto-Config"
