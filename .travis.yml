@@ -21,7 +21,7 @@ script:
   - sed -i "s|http://www.virtualflybrain.org/owl/vfb.owl|${OWLURL}|g" Dockerfile
   - sed -i "s|http://www.virtualflybrain.org/owl/vfb.owl|${OWLURL}|g" application.conf
   - echo -e "travis_fold:end:Geppetto-Config"
-  - docker build -f Dockerfile -t $REPO:$VFBSUB --build-arg CONF_REPO=https://github.com/VirtualFlyBrain/vfb-pipeline-config.git --build-arg CONF_BRANCH=prod . 
+  - docker build -f Dockerfile -t $REPO:$VFBSUB --build-arg CONF_REPO=https://github.com/VirtualFlyBrain/vfb-pipeline-config.git --build-arg CONF_BRANCH=prod .
   - |
     if [ "$VFBSUB" != "local" ]; then
       docker tag $REPO:$VFBSUB $REPO:$TAG-$VFBSUB
