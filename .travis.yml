@@ -18,10 +18,8 @@ script:
   - export REPO=$(echo ${TRAVIS_REPO_SLUG} | awk '{gsub(/\./,"_",$0);print tolower($0)}')
   - export REPO=${REPO/robbie1977/rcourt}
   - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
-  - sed -i "s|http://www.virtualflybrain.org/owl/vfb.owl|${OWLURL}|g" Dockerfile
-  - sed -i "s|http://www.virtualflybrain.org/owl/vfb.owl|${OWLURL}|g" application.conf
   - echo -e "travis_fold:end:Geppetto-Config"
-  - docker build -f Dockerfile -t $REPO:$VFBSUB --build-arg CONF_REPO=https://github.com/VirtualFlyBrain/vfb-pipeline-config.git --build-arg CONF_BRANCH=prod . 
+  - docker build -f Dockerfile -t $REPO:$VFBSUB --build-arg OWLURL="${OWLURL}" --build-arg CONF_REPO=https://github.com/VirtualFlyBrain/vfb-pipeline-config.git --build-arg CONF_BRANCH=prod . 
   - |
     if [ "$VFBSUB" != "local" ]; then
       docker tag $REPO:$VFBSUB $REPO:$TAG-$VFBSUB
