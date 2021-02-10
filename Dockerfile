@@ -5,9 +5,11 @@ MAINTAINER Robbie - Virtual Fly Brain <rcourt@ed.ac.uk>
 # from compose args
 ARG CONF_REPO
 ARG CONF_BRANCH
+ARG OWLURL_ARG
 
 ENV CONF_BASE=/opt/conf_base
 ENV CONF_DIR=${CONF_BASE}/config/owlery
+ENV OWLURL=$OWLURL_ARG
 
 USER root
 
